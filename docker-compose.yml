@@ -3,8 +3,6 @@ version: "3"
 services:
   base: &base
     image: ${DOCKER_IMAGE:-solnic/hanami-docker_demo}:${DOCKER_TAG:-latest}
-    volumes:
-      - .:/app
 
   development:
     <<: *base
@@ -14,6 +12,7 @@ services:
     entrypoint: script/development
     env_file: [.env, .env.development]
     volumes:
+      - .:/app
       - bundle:/usr/local/bundle
 
   test:
@@ -23,6 +22,8 @@ services:
       target: test
     entrypoint: script/test
     env_file: [.env, .env.test]
+    volumes:
+      - .:/app
 
 volumes:
   bundle:
