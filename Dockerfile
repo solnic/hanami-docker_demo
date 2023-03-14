@@ -12,4 +12,6 @@ RUN apk --no-cache add bash
 
 FROM development AS test
 
+COPY . .
+
 RUN bundle install
