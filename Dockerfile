@@ -14,4 +14,4 @@ FROM development AS test
 
 COPY Gemfile* ./
 
-RUN bundle install
+RUN bundle install && rm -r /usr/local/bundle/cache/*
