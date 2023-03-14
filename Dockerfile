@@ -11,3 +11,7 @@ FROM ruby-base AS development
 RUN apk --no-cache add bash
 
 FROM development AS test
+
+COPY Gemfile* ./
+
+RUN bundle install
