@@ -11,3 +11,5 @@ FROM ruby-base AS development
 RUN apk --no-cache add bash
 
 FROM development AS test
+
+RUN bundle install
