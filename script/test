@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ $# -eq 0 ]; then
+  [[ -f log/test.log ]] || touch log/test.log
+  tail -f log/test.log
+else
+  echo "Running $@"
+  exec $@
+fi
